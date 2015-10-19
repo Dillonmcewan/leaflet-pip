@@ -12,8 +12,7 @@ var leafletPip = {
 
         layer.eachLayer(function(l) {
             if (first && results.length) return;
-            if ((l instanceof L.MultiPolygon ||
-                 l instanceof L.Polygon) &&
+            if ((l instanceof L.Polygon) &&
                 gju.pointInPolygon({
                     type: 'Point',
                     coordinates: p
@@ -93,7 +92,7 @@ module.exports = leafletPip;
   }
 
   gju.pointInBoundingBox = function (point, bounds) {
-    return !(point.coordinates[1] < bounds[0][0] || point.coordinates[1] > bounds[1][0] || point.coordinates[0] < bounds[0][1] || point.coordinates[0] > bounds[1][1]) 
+    return !(point.coordinates[1] < bounds[0][0] || point.coordinates[1] > bounds[1][0] || point.coordinates[0] < bounds[0][1] || point.coordinates[0] > bounds[1][1])
   }
 
   // Point in Polygon
